@@ -14,4 +14,8 @@ class Song < ActiveRecord::Base
     self.try(:genre).try(:name)
   end
 
+  def artist_name
+    self.try(:artist).try(:name)
+  end
+
 end
