@@ -1,8 +1,6 @@
 class Song < ActiveRecord::Base
-  validates :title, presence: true
   belongs_to :artist
   belongs_to :genre
-
   has_many :notes
 
   def genre_name=(name)
@@ -25,7 +23,7 @@ class Song < ActiveRecord::Base
 
   def note_contents=(notes)
     notes.each do |content|
-      if content.strip  !=''
+      if content.strip != ''
         self.notes.build(content: content)
       end
     end
